@@ -13,6 +13,7 @@ Available options for "config.json":
 - "socket" (false or path) - if false, it means you stop "stream.rb" with SIGINT (Ctrl+C) by yourself somehow
 			     if path, then the specified file's lifetime (basically, the timespan before you delete it) is the time window when the program shall operate
 - "source" (v4l device path) - v4l device path to use at the video input. By default, it's /dev/video0
+- "fork" (true/false) - whether to fork the process or not. Valid only if "socket" is not false.
 
 All shots overwrite each other and are saved at /tmp/cam.jpeg. Overriding this setting is possible, but is not recommended.
 
