@@ -1,0 +1,27 @@
+Install streamer (obv) and ruby (no libs needed rly):
+
+$ sudo apt install streamer ruby rubygems -y
+
+Configure the streaming tool by placing "config.json" next to "stream.rb":
+
+$ cat >>config.json<<EOF
+{ "interval": 0.5, "socket": false }
+EOF
+
+Available options for "config.json":
+- "interval" (double) - the delay time between multiple cam shorts (in seconds)
+- "socket" (false or path) - if false, it means you stop "stream.rb" with SIGINT (Ctrl+C) by yourself somehow
+			     if path, then the specified file's lifetime (basically, the timespan before you delete it) is the time window when the program shall operate
+- "source" (v4l device path) - v4l device path to use at the video input. By default, it's /dev/video0
+
+All shots overwrite each other and are saved at /tmp/cam.jpeg. Overriding this setting is possible, but is not recommended.
+
+So, after config, run "stream.rb"
+
+$ ruby stream.rb
+
+If you need a primitive web frontend for this, you'll need python3 and a new terminal session, where you shall run "go.sh" from the "html" folder:
+
+$ sh html/go.sh
+
+
