@@ -1,12 +1,8 @@
 <script>
-function reloadImage() {
-	setTimeout(2000, function() {
-		document.getElementById("image").src = "/cam.jpeg?dynamic=" + Date.now;
-		reloadImage();
-	});
-	return;
-}
+window.setInterval(updateImage, 2000);
 
-reloadImage();
+function updateImage() {
+	document.getElementById('image').src = '/cam.jpeg?interval=' + (new Date()).getTime();
+}
 </script>
 <img style="width: 100%; height: 100%" id=image src="/cam.jpeg" />
