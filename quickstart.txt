@@ -5,7 +5,7 @@ $ sudo apt install streamer ruby rubygems -y
 Configure the streaming tool by placing "config.json" next to "stream.rb":
 
 $ cat >>config.json<<EOF
-{ "interval": 0.5, "socket": false }
+{ "interval": 0.5, "socket": false, "fork": false }
 EOF
 
 Available options for "config.json":
